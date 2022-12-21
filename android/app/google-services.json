@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "1048965119081",
+    "firebase_url": "https://davaoprimemobile-default-rtdb.firebaseio.com",
+    "project_id": "davaoprimemobile",
+    "storage_bucket": "davaoprimemobile.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1048965119081:android:4897a75ee2b1ccf7bff6f8",
+        "android_client_info": {
+          "package_name": "com.davaoprimecreations.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1048965119081-1ln6knbd3k9dei4hvo7prghutsrpcdbu.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.davaoprimecreations.app",
+            "certificate_hash": "9bbb3186b2189ef16d8f272bdab59362c395cbb4"
+          }
+        },
+        {
+          "client_id": "1048965119081-8vq3ahktrfb91b4h04gop1ph3akt3rtn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDI_R7AxFxDysapvXHJ_ExqDzI0csBYieg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1048965119081-8vq3ahktrfb91b4h04gop1ph3akt3rtn.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1048965119081-udcod0v177dpkdf68nmfgi3ovup7sp77.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.davaoprimecreations.app"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -8,7 +8,15 @@ import 'package:shared_preferences/shared_preferences.dart';
 const kThemeModeKey = '__theme_mode__';
 SharedPreferences? _prefs;
 
+enum DeviceSize {
+  mobile,
+  tablet,
+  desktop,
+}
+
 abstract class FlutterFlowTheme {
+  static DeviceSize deviceSize = DeviceSize.mobile;
+
   static Future initialize() async =>
       _prefs = await SharedPreferences.getInstance();
   static ThemeMode get themeMode {
@@ -25,6 +33,7 @@ abstract class FlutterFlowTheme {
       : _prefs?.setBool(kThemeModeKey, mode == ThemeMode.dark);
 
   static FlutterFlowTheme of(BuildContext context) {
+    deviceSize = getDeviceSize(context);
     return Theme.of(context).brightness == Brightness.dark
         ? DarkModeTheme()
         : LightModeTheme();
@@ -41,6 +50,12 @@ abstract class FlutterFlowTheme {
 
   late Color primaryBtnText;
   late Color lineColor;
+  late Color richBlackFOGRA39;
+  late Color blue;
+  late Color turquoise;
+  late Color cultured;
+  late Color cerise;
+  late Color customColor1;
 
   String get title1Family => typography.title1Family;
   TextStyle get title1 => typography.title1;
@@ -57,7 +72,22 @@ abstract class FlutterFlowTheme {
   String get bodyText2Family => typography.bodyText2Family;
   TextStyle get bodyText2 => typography.bodyText2;
 
-  Typography get typography => ThemeTypography(this);
+  Typography get typography => {
+        DeviceSize.mobile: MobileTypography(this),
+        DeviceSize.tablet: TabletTypography(this),
+        DeviceSize.desktop: DesktopTypography(this),
+      }[deviceSize]!;
+}
+
+DeviceSize getDeviceSize(BuildContext context) {
+  final width = MediaQuery.of(context).size.width;
+  if (width < 479) {
+    return DeviceSize.mobile;
+  } else if (width < 991) {
+    return DeviceSize.tablet;
+  } else {
+    return DeviceSize.desktop;
+  }
 }
 
 class LightModeTheme extends FlutterFlowTheme {
@@ -72,6 +102,12 @@ class LightModeTheme extends FlutterFlowTheme {
 
   late Color primaryBtnText = Color(0xFFFFFFFF);
   late Color lineColor = Color(0xFFE0E3E7);
+  late Color richBlackFOGRA39 = Color(0xFF070707);
+  late Color blue = Color(0xFF3A28DE);
+  late Color turquoise = Color(0xFF34D1BF);
+  late Color cultured = Color(0xFFEFEFEF);
+  late Color cerise = Color(0xFFD1345B);
+  late Color customColor1 = Color(0xFF2FB73C);
 }
 
 abstract class Typography {
@@ -91,8 +127,120 @@ abstract class Typography {
   TextStyle get bodyText2;
 }
 
-class ThemeTypography extends Typography {
-  ThemeTypography(this.theme);
+class MobileTypography extends Typography {
+  MobileTypography(this.theme);
+
+  final FlutterFlowTheme theme;
+
+  String get title1Family => 'Poppins';
+  TextStyle get title1 => GoogleFonts.getFont(
+        'Poppins',
+        color: theme.primaryText,
+        fontWeight: FontWeight.w600,
+        fontSize: 24,
+      );
+  String get title2Family => 'Poppins';
+  TextStyle get title2 => GoogleFonts.getFont(
+        'Poppins',
+        color: theme.secondaryText,
+        fontWeight: FontWeight.w600,
+        fontSize: 22,
+      );
+  String get title3Family => 'Poppins';
+  TextStyle get title3 => GoogleFonts.getFont(
+        'Poppins',
+        color: theme.primaryText,
+        fontWeight: FontWeight.w600,
+        fontSize: 20,
+      );
+  String get subtitle1Family => 'Poppins';
+  TextStyle get subtitle1 => GoogleFonts.getFont(
+        'Poppins',
+        color: theme.primaryText,
+        fontWeight: FontWeight.w600,
+        fontSize: 18,
+      );
+  String get subtitle2Family => 'Poppins';
+  TextStyle get subtitle2 => GoogleFonts.getFont(
+        'Poppins',
+        color: theme.secondaryText,
+        fontWeight: FontWeight.w600,
+        fontSize: 16,
+      );
+  String get bodyText1Family => 'Poppins';
+  TextStyle get bodyText1 => GoogleFonts.getFont(
+        'Poppins',
+        color: theme.primaryText,
+        fontWeight: FontWeight.w600,
+        fontSize: 14,
+      );
+  String get bodyText2Family => 'Poppins';
+  TextStyle get bodyText2 => GoogleFonts.getFont(
+        'Poppins',
+        color: theme.secondaryText,
+        fontWeight: FontWeight.w600,
+        fontSize: 14,
+      );
+}
+
+class TabletTypography extends Typography {
+  TabletTypography(this.theme);
+
+  final FlutterFlowTheme theme;
+
+  String get title1Family => 'Poppins';
+  TextStyle get title1 => GoogleFonts.getFont(
+        'Poppins',
+        color: theme.primaryText,
+        fontWeight: FontWeight.w600,
+        fontSize: 24,
+      );
+  String get title2Family => 'Poppins';
+  TextStyle get title2 => GoogleFonts.getFont(
+        'Poppins',
+        color: theme.secondaryText,
+        fontWeight: FontWeight.w600,
+        fontSize: 22,
+      );
+  String get title3Family => 'Poppins';
+  TextStyle get title3 => GoogleFonts.getFont(
+        'Poppins',
+        color: theme.primaryText,
+        fontWeight: FontWeight.w600,
+        fontSize: 20,
+      );
+  String get subtitle1Family => 'Poppins';
+  TextStyle get subtitle1 => GoogleFonts.getFont(
+        'Poppins',
+        color: theme.primaryText,
+        fontWeight: FontWeight.w600,
+        fontSize: 18,
+      );
+  String get subtitle2Family => 'Poppins';
+  TextStyle get subtitle2 => GoogleFonts.getFont(
+        'Poppins',
+        color: theme.secondaryText,
+        fontWeight: FontWeight.w600,
+        fontSize: 16,
+      );
+  String get bodyText1Family => 'Poppins';
+  TextStyle get bodyText1 => GoogleFonts.getFont(
+        'Poppins',
+        color: theme.primaryText,
+        fontWeight: FontWeight.w600,
+        fontSize: 14,
+      );
+  String get bodyText2Family => 'Poppins';
+  TextStyle get bodyText2 => GoogleFonts.getFont(
+        'Poppins',
+        color: theme.secondaryText,
+        fontWeight: FontWeight.w600,
+        fontSize: 14,
+      );
+}
+
+class DesktopTypography extends Typography {
+  DesktopTypography(this.theme);
 
   final FlutterFlowTheme theme;
 
@@ -159,6 +307,12 @@ class DarkModeTheme extends FlutterFlowTheme {
 
   late Color primaryBtnText = Color(0xFFFFFFFF);
   late Color lineColor = Color(0xFF22282F);
+  late Color richBlackFOGRA39 = Color(0xFF070707);
+  late Color blue = Color(0xFF3A28DE);
+  late Color turquoise = Color(0xFF34D1BF);
+  late Color cultured = Color(0xFFEFEFEF);
+  late Color cerise = Color(0xFFD1345B);
+  late Color customColor1 = Color(0xFF452FB7);
 }
 
 extension TextStyleHelper on TextStyle {

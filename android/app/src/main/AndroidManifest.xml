@@ -5,7 +5,7 @@
 
 
    <application
-        android:label="InvestNow"
+        android:label="Davao Prime"
         tools:replace="android:label"
         android:icon="@mipmap/ic_launcher"
         android:requestLegacyExternalStorage="true">
@@ -45,7 +45,8 @@
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
-                <data android:scheme="investnow" android:host="investnow.com" />
+                <data android:scheme="http" android:host="davaoprimecreation.com" />
+                <data android:scheme="https" />
             </intent-filter>
 
         </activity>

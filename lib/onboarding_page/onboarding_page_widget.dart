@@ -19,6 +19,13 @@ class _OnboardingPageWidgetState extends State<OnboardingPageWidget>
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
+  void initState() {
+    super.initState();
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       key: scaffoldKey,
@@ -51,8 +58,16 @@ class _OnboardingPageWidgetState extends State<OnboardingPageWidget>
               mainAxisSize: MainAxisSize.max,
               children: [
                 FFButtonWidget(
-                  onPressed: () {
-                    print('Button pressed ...');
+                  onPressed: () async {
+                    context.pushNamed(
+                      'startpage',
+                      extra: <String, dynamic>{
+                        kTransitionInfoKey: TransitionInfo(
+                          hasTransition: true,
+                          transitionType: PageTransitionType.fade,
+                        ),
+                      },
+                    );
                   },
                   text: 'Get Started',
                   options: FFButtonOptions(
@@ -60,10 +75,13 @@ class _OnboardingPageWidgetState extends State<OnboardingPageWidget>
                     height: 40,
                     color: FlutterFlowTheme.of(context).primaryColor,
                     textStyle: FlutterFlowTheme.of(context).subtitle2.override(
-                          fontFamily: 'Poppins',
+                          fontFamily:
+                              FlutterFlowTheme.of(context).subtitle2Family,
                           color: Colors.white,
                           fontSize: 14,
                           fontWeight: FontWeight.normal,
+                          useGoogleFonts: GoogleFonts.asMap().containsKey(
+                              FlutterFlowTheme.of(context).subtitle2Family),
                         ),
                     elevation: 4,
                     borderSide: BorderSide(
