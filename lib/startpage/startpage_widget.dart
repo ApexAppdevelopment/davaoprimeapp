@@ -4,6 +4,7 @@ import '../flutter_flow/flutter_flow_widgets.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart'
     as smooth_page_indicator;
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class StartpageWidget extends StatefulWidget {
@@ -61,7 +62,7 @@ class _StartpageWidgetState extends State<StartpageWidget> {
                                       child: Image.asset(
                                         'assets/images/illi_4@2x.png',
                                         width: 300,
-                                        height: 300,
+                                        height: 371.2,
                                         fit: BoxFit.cover,
                                       ),
                                     ),
@@ -261,7 +262,7 @@ class _StartpageWidgetState extends State<StartpageWidget> {
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 24),
+                  padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 40),
                   child: FFButtonWidget(
                     onPressed: () async {
                       context.pushNamed('createaccount');

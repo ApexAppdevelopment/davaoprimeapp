@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:go_router/go_router.dart';
 import 'package:page_transition/page_transition.dart';
 import '../flutter_flow_theme.dart';
@@ -73,15 +74,14 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       debugLogDiagnostics: true,
       refreshListenable: appStateNotifier,
       errorBuilder: (context, _) =>
-          appStateNotifier.loggedIn ? HomepageWidget() : OnboardingPageWidget(),
+          appStateNotifier.loggedIn ? NavBarPage() : OnboardingPageWidget(),
       navigatorBuilder: (_, __, child) => DynamicLinksHandler(child: child),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
-          builder: (context, _) => appStateNotifier.loggedIn
-              ? HomepageWidget()
-              : OnboardingPageWidget(),
+          builder: (context, _) =>
+              appStateNotifier.loggedIn ? NavBarPage() : OnboardingPageWidget(),
           routes: [
             FFRoute(
               name: 'onboarding_page',
@@ -121,7 +121,54 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
             FFRoute(
               name: 'homepage',
               path: 'homepage',
-              builder: (context, params) => HomepageWidget(),
+              builder: (context, params) => params.isEmpty
+                  ? NavBarPage(initialPage: 'homepage')
+                  : HomepageWidget(),
+            ),
+            FFRoute(
+              name: 'productlist',
+              path: 'productlist',
+              builder: (context, params) => params.isEmpty
+                  ? NavBarPage(initialPage: 'productlist')
+                  : ProductlistWidget(),
+            ),
+            FFRoute(
+              name: 'productdetails',
+              path: 'productdetails',
+              builder: (context, params) => ProductdetailsWidget(
+                plans: params.getParam(
+                    'plans', ParamType.DocumentReference, false, 'Plans'),
+              ),
+            ),
+            FFRoute(
+              name: 'testimonies',
+              path: 'testimonies',
+              builder: (context, params) => TestimoniesWidget(),
+            ),
+            FFRoute(
+              name: 'mycart',
+              path: 'mycart',
+              builder: (context, params) => MycartWidget(),
+            ),
+            FFRoute(
+              name: 'gcash1k',
+              path: 'gcash1k',
+              builder: (context, params) => Gcash1kWidget(),
+            ),
+            FFRoute(
+              name: 'gallerries',
+              path: 'gallerries',
+              builder: (context, params) => GallerriesWidget(),
+            ),
+            FFRoute(
+              name: 'setting',
+              path: 'setting',
+              builder: (context, params) => SettingWidget(),
+            ),
+            FFRoute(
+              name: 'UpdateInfo',
+              path: 'updateInfo',
+              builder: (context, params) => UpdateInfoWidget(),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ).toRoute(appStateNotifier),
