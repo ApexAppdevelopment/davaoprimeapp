@@ -303,7 +303,6 @@ class _UpdateInfoWidgetState extends State<UpdateInfoWidget> {
                           EdgeInsetsDirectional.fromSTEB(20, 24, 0, 24),
                     ),
                     style: FlutterFlowTheme.of(context).bodyText1,
-                    maxLines: null,
                   ),
                 ),
                 Padding(
@@ -463,7 +462,15 @@ class _UpdateInfoWidgetState extends State<UpdateInfoWidget> {
                         );
                         await currentUserReference!.update(usersUpdateData);
 
-                        context.pushNamed('homepage');
+                        context.pushNamed(
+                          'setting',
+                          extra: <String, dynamic>{
+                            kTransitionInfoKey: TransitionInfo(
+                              hasTransition: true,
+                              transitionType: PageTransitionType.topToBottom,
+                            ),
+                          },
+                        );
 
                         setState(() {});
                       },

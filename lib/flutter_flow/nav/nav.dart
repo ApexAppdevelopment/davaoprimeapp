@@ -133,6 +133,16 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                   : ProductlistWidget(),
             ),
             FFRoute(
+              name: 'ecomproduct',
+              path: 'ecomproduct',
+              builder: (context, params) => EcomproductWidget(),
+            ),
+            FFRoute(
+              name: 'product_ecom_cart',
+              path: 'productEcomCart',
+              builder: (context, params) => ProductEcomCartWidget(),
+            ),
+            FFRoute(
               name: 'productdetails',
               path: 'productdetails',
               builder: (context, params) => ProductdetailsWidget(
@@ -146,11 +156,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               builder: (context, params) => TestimoniesWidget(),
             ),
             FFRoute(
-              name: 'mycart',
-              path: 'mycart',
-              builder: (context, params) => MycartWidget(),
-            ),
-            FFRoute(
               name: 'gcash1k',
               path: 'gcash1k',
               builder: (context, params) => Gcash1kWidget(),
@@ -158,7 +163,14 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
             FFRoute(
               name: 'gallerries',
               path: 'gallerries',
-              builder: (context, params) => GallerriesWidget(),
+              builder: (context, params) => params.isEmpty
+                  ? NavBarPage(initialPage: 'gallerries')
+                  : GallerriesWidget(),
+            ),
+            FFRoute(
+              name: 'mycart',
+              path: 'mycart',
+              builder: (context, params) => MycartWidget(),
             ),
             FFRoute(
               name: 'setting',
@@ -169,6 +181,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               name: 'UpdateInfo',
               path: 'updateInfo',
               builder: (context, params) => UpdateInfoWidget(),
+            ),
+            FFRoute(
+              name: 'createpost',
+              path: 'createpost',
+              builder: (context, params) => CreatepostWidget(),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ).toRoute(appStateNotifier),

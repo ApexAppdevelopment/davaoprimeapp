@@ -5,4 +5,6 @@ export 'package:flutter/material.dart' show Color, Colors;
 export '../../flutter_flow/lat_lng.dart';
 
 export 'structs/plans_struct.dart';
+export 'structs/post_struct.dart';
+export 'structs/products_struct.dart';
 export 'structs/users_struct.dart';

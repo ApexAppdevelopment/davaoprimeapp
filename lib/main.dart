@@ -124,6 +124,7 @@ class _NavBarPageState extends State<NavBarPage> {
     final tabs = {
       'homepage': HomepageWidget(),
       'productlist': ProductlistWidget(),
+      'gallerries': GallerriesWidget(),
     };
     final currentIndex = tabs.keys.toList().indexOf(_currentPageName);
     return Scaffold(
@@ -155,6 +156,14 @@ class _NavBarPageState extends State<NavBarPage> {
               size: 24,
             ),
             label: 'Products',
+            tooltip: '',
+          ),
+          BottomNavigationBarItem(
+            icon: FaIcon(
+              FontAwesomeIcons.cameraRetro,
+              size: 24,
+            ),
+            label: 'Post',
             tooltip: '',
           )
         ],

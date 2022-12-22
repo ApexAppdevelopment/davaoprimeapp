@@ -5,6 +5,7 @@ import '../flutter_flow/flutter_flow_util.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class SettingWidget extends StatefulWidget {
@@ -45,8 +46,8 @@ class _SettingWidgetState extends State<SettingWidget> {
                 color: FlutterFlowTheme.of(context).primaryText,
                 size: 30,
               ),
-              onPressed: () {
-                print('IconButton pressed ...');
+              onPressed: () async {
+                context.pop();
               },
             ),
             title: Text(
@@ -120,7 +121,10 @@ class _SettingWidgetState extends State<SettingWidget> {
                                 children: [
                                   AuthUserStreamWidget(
                                     child: Text(
-                                      currentUserDisplayName,
+                                      valueOrDefault<String>(
+                                        currentUserDisplayName,
+                                        'Jhon Wick',
+                                      ),
                                       style:
                                           FlutterFlowTheme.of(context).title3,
                                     ),
@@ -130,8 +134,8 @@ class _SettingWidgetState extends State<SettingWidget> {
                                         0, 4, 0, 0),
                                     child: Text(
                                       valueOrDefault<String>(
-                                        currentUserEmail,
-                                        'test@usermail.com',
+                                        currentUserUid,
+                                        '000000',
                                       ),
                                       style: FlutterFlowTheme.of(context)
                                           .bodyText2,
@@ -183,7 +187,7 @@ class _SettingWidgetState extends State<SettingWidget> {
                               padding:
                                   EdgeInsetsDirectional.fromSTEB(12, 0, 0, 0),
                               child: Text(
-                                'Payment Options',
+                                'Subscribe Plans',
                                 style: FlutterFlowTheme.of(context).bodyText2,
                               ),
                             ),
@@ -307,51 +311,66 @@ class _SettingWidgetState extends State<SettingWidget> {
                   ),
                   Padding(
                     padding: EdgeInsetsDirectional.fromSTEB(16, 12, 16, 0),
-                    child: Container(
-                      width: double.infinity,
-                      height: 60,
-                      decoration: BoxDecoration(
-                        color: FlutterFlowTheme.of(context).secondaryBackground,
-                        boxShadow: [
-                          BoxShadow(
-                            blurRadius: 5,
-                            color: Color(0x3416202A),
-                            offset: Offset(0, 2),
-                          )
-                        ],
-                        borderRadius: BorderRadius.circular(12),
-                        shape: BoxShape.rectangle,
-                      ),
-                      child: Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(8, 8, 8, 8),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.max,
-                          children: [
-                            Icon(
-                              Icons.account_circle_outlined,
-                              color: FlutterFlowTheme.of(context).secondaryText,
-                              size: 24,
+                    child: InkWell(
+                      onTap: () async {
+                        context.pushNamed(
+                          'UpdateInfo',
+                          extra: <String, dynamic>{
+                            kTransitionInfoKey: TransitionInfo(
+                              hasTransition: true,
+                              transitionType: PageTransitionType.fade,
                             ),
-                            Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(12, 0, 0, 0),
-                              child: Text(
-                                'Edit Profile',
-                                style: FlutterFlowTheme.of(context).bodyText2,
+                          },
+                        );
+                      },
+                      child: Container(
+                        width: double.infinity,
+                        height: 60,
+                        decoration: BoxDecoration(
+                          color:
+                              FlutterFlowTheme.of(context).secondaryBackground,
+                          boxShadow: [
+                            BoxShadow(
+                              blurRadius: 5,
+                              color: Color(0x3416202A),
+                              offset: Offset(0, 2),
+                            )
+                          ],
+                          borderRadius: BorderRadius.circular(12),
+                          shape: BoxShape.rectangle,
+                        ),
+                        child: Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(8, 8, 8, 8),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              Icon(
+                                Icons.account_circle_outlined,
+                                color:
+                                    FlutterFlowTheme.of(context).secondaryText,
+                                size: 24,
                               ),
-                            ),
-                            Expanded(
-                              child: Align(
-                                alignment: AlignmentDirectional(0.9, 0),
-                                child: Icon(
-                                  Icons.arrow_forward_ios,
-                                  color: FlutterFlowTheme.of(context)
-                                      .secondaryText,
-                                  size: 18,
+                              Padding(
+                                padding:
+                                    EdgeInsetsDirectional.fromSTEB(12, 0, 0, 0),
+                                child: Text(
+                                  'Edit Profile',
+                                  style: FlutterFlowTheme.of(context).bodyText2,
                                 ),
                               ),
-                            ),
-                          ],
+                              Expanded(
+                                child: Align(
+                                  alignment: AlignmentDirectional(0.9, 0),
+                                  child: Icon(
+                                    Icons.arrow_forward_ios,
+                                    color: FlutterFlowTheme.of(context)
+                                        .secondaryText,
+                                    size: 18,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                     ),
