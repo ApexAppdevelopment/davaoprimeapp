@@ -49,118 +49,114 @@ class _HomepageWidgetState extends State<HomepageWidget>
                   mainAxisSize: MainAxisSize.max,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Row(
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        Container(
-                          width: 400.3,
-                          height: 30.7,
-                          decoration: BoxDecoration(),
-                        ),
-                      ],
-                    ),
-                    StreamBuilder<UsersRecord>(
-                      stream: UsersRecord.getDocument(currentUserReference!),
-                      builder: (context, snapshot) {
-                        // Customize what your widget looks like when it's loading.
-                        if (!snapshot.hasData) {
-                          return Center(
-                            child: SizedBox(
-                              width: 50,
-                              height: 50,
-                              child: SpinKitDoubleBounce(
-                                color:
-                                    FlutterFlowTheme.of(context).primaryColor,
-                                size: 50,
+                    Padding(
+                      padding: EdgeInsetsDirectional.fromSTEB(0, 12, 0, 0),
+                      child: InkWell(
+                        onTap: () async {
+                          context.pushNamed(
+                            'setting',
+                            extra: <String, dynamic>{
+                              kTransitionInfoKey: TransitionInfo(
+                                hasTransition: true,
+                                transitionType: PageTransitionType.fade,
                               ),
-                            ),
+                            },
                           );
-                        }
-                        final rowUsersRecord = snapshot.data!;
-                        return InkWell(
-                          onTap: () async {
-                            context.pushNamed(
-                              'setting',
-                              extra: <String, dynamic>{
-                                kTransitionInfoKey: TransitionInfo(
-                                  hasTransition: true,
-                                  transitionType: PageTransitionType.fade,
-                                ),
-                              },
-                            );
-                          },
-                          child: Row(
-                            mainAxisSize: MainAxisSize.max,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    16, 5, 16, 0),
-                                child: Row(
-                                  mainAxisSize: MainAxisSize.max,
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: [
-                                    Card(
-                                      clipBehavior: Clip.antiAliasWithSaveLayer,
-                                      color: FlutterFlowTheme.of(context)
-                                          .primaryColor,
-                                      shape: RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.circular(40),
-                                      ),
-                                      child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            2, 2, 2, 2),
-                                        child: AuthUserStreamWidget(
-                                          child: InkWell(
-                                            onTap: () async {
-                                              context.pushNamed(
-                                                'setting',
-                                                extra: <String, dynamic>{
-                                                  kTransitionInfoKey:
-                                                      TransitionInfo(
-                                                    hasTransition: true,
-                                                    transitionType:
-                                                        PageTransitionType.fade,
-                                                  ),
-                                                },
-                                              );
-                                            },
-                                            child: ClipRRect(
-                                              borderRadius:
-                                                  BorderRadius.circular(40),
-                                              child: Image.network(
-                                                valueOrDefault<String>(
-                                                  currentUserPhoto,
-                                                  'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/invest-now-j3376z/assets/nq7uu4qh6lf9/62-622164_client-image-user-icon-png.png',
+                        },
+                        child: Row(
+                          mainAxisSize: MainAxisSize.max,
+                          crossAxisAlignment: CrossAxisAlignment.end,
+                          children: [
+                            Padding(
+                              padding:
+                                  EdgeInsetsDirectional.fromSTEB(16, 5, 16, 0),
+                              child: Row(
+                                mainAxisSize: MainAxisSize.max,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  Card(
+                                    clipBehavior: Clip.antiAliasWithSaveLayer,
+                                    color: FlutterFlowTheme.of(context)
+                                        .primaryColor,
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(40),
+                                    ),
+                                    child: Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          2, 2, 2, 2),
+                                      child: AuthUserStreamWidget(
+                                        child: InkWell(
+                                          onTap: () async {
+                                            context.pushNamed(
+                                              'setting',
+                                              extra: <String, dynamic>{
+                                                kTransitionInfoKey:
+                                                    TransitionInfo(
+                                                  hasTransition: true,
+                                                  transitionType:
+                                                      PageTransitionType.fade,
                                                 ),
-                                                width: 50,
-                                                height: 50,
-                                                fit: BoxFit.cover,
+                                              },
+                                            );
+                                          },
+                                          child: ClipRRect(
+                                            borderRadius:
+                                                BorderRadius.circular(40),
+                                            child: Image.network(
+                                              valueOrDefault<String>(
+                                                currentUserPhoto,
+                                                'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/invest-now-j3376z/assets/rx3n4q2do1i4/Premium_Photo___Attractive_young_girl_wearing_casual_clothes_standing_isolated_over_white_,_showing_thumbs_up_(1).jpeg',
                                               ),
+                                              width: 50,
+                                              height: 50,
+                                              fit: BoxFit.cover,
                                             ),
                                           ),
                                         ),
                                       ),
                                     ),
-                                    Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          12, 0, 0, 0),
-                                      child: Column(
-                                        mainAxisSize: MainAxisSize.max,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.end,
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          Text(
-                                            'Welcome back!',
+                                  ),
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        12, 0, 0, 0),
+                                    child: Column(
+                                      mainAxisSize: MainAxisSize.max,
+                                      mainAxisAlignment: MainAxisAlignment.end,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          'Welcome back!',
+                                          style: FlutterFlowTheme.of(context)
+                                              .subtitle1
+                                              .override(
+                                                fontFamily:
+                                                    FlutterFlowTheme.of(context)
+                                                        .subtitle1Family,
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .gray600,
+                                                useGoogleFonts: GoogleFonts
+                                                        .asMap()
+                                                    .containsKey(
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .subtitle1Family),
+                                              ),
+                                        ),
+                                        AuthUserStreamWidget(
+                                          child: Text(
+                                            valueOrDefault<String>(
+                                              currentUserDisplayName,
+                                              'Valued client...',
+                                            ),
                                             style: FlutterFlowTheme.of(context)
-                                                .subtitle1
+                                                .bodyText2
                                                 .override(
                                                   fontFamily:
                                                       FlutterFlowTheme.of(
                                                               context)
-                                                          .subtitle1Family,
+                                                          .bodyText2Family,
                                                   color: FlutterFlowTheme.of(
                                                           context)
                                                       .gray600,
@@ -169,46 +165,19 @@ class _HomepageWidgetState extends State<HomepageWidget>
                                                       .containsKey(
                                                           FlutterFlowTheme.of(
                                                                   context)
-                                                              .subtitle1Family),
+                                                              .bodyText2Family),
                                                 ),
                                           ),
-                                          AuthUserStreamWidget(
-                                            child: Text(
-                                              valueOrDefault<String>(
-                                                currentUserDisplayName,
-                                                'App User',
-                                              ),
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyText2
-                                                      .override(
-                                                        fontFamily:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyText2Family,
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .gray600,
-                                                        useGoogleFonts: GoogleFonts
-                                                                .asMap()
-                                                            .containsKey(
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyText2Family),
-                                                      ),
-                                            ),
-                                          ),
-                                        ],
-                                      ),
+                                        ),
+                                      ],
                                     ),
-                                  ],
-                                ),
+                                  ),
+                                ],
                               ),
-                            ],
-                          ),
-                        );
-                      },
+                            ),
+                          ],
+                        ),
+                      ),
                     ),
                     Padding(
                       padding: EdgeInsetsDirectional.fromSTEB(16, 16, 0, 0),
@@ -272,7 +241,7 @@ class _HomepageWidgetState extends State<HomepageWidget>
                                       context.pushNamed(
                                         'productdetails',
                                         queryParams: {
-                                          'plans': serializeParam(
+                                          'plantitle': serializeParam(
                                             listViewPlansRecord.reference,
                                             ParamType.DocumentReference,
                                           ),

@@ -214,9 +214,12 @@ class _EcomproductWidgetState extends State<EcomproductWidget> {
                     mainAxisSize: MainAxisSize.max,
                     children: [
                       Expanded(
-                        child: Text(
-                          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-                          style: FlutterFlowTheme.of(context).bodyText2,
+                        child: Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(0, 4, 0, 0),
+                          child: Text(
+                            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+                            style: FlutterFlowTheme.of(context).bodyText2,
+                          ),
                         ),
                       ),
                     ],

@@ -48,7 +48,7 @@ class _MycartWidgetState extends State<MycartWidget> {
               },
             ),
             title: Text(
-              'My Cart',
+              'My Plan',
               style: FlutterFlowTheme.of(context).subtitle1,
             ),
             actions: [],
@@ -121,8 +121,8 @@ class _MycartWidgetState extends State<MycartWidget> {
                                             child: ClipRRect(
                                               borderRadius:
                                                   BorderRadius.circular(8),
-                                              child: Image.asset(
-                                                'assets/images/photoBook.png',
+                                              child: Image.network(
+                                                'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/invest-now-j3376z/assets/7vn5phcrt5rl/initial-public-offering-finance-payroll-accounting-net-income-eek67rjS_t-removebg-preview.png',
                                                 width: 90,
                                                 height: 90,
                                                 fit: BoxFit.cover,
@@ -145,7 +145,7 @@ class _MycartWidgetState extends State<MycartWidget> {
                                             CrossAxisAlignment.start,
                                         children: [
                                           Text(
-                                            '[Product Name]',
+                                            'Plan Type',
                                             style: FlutterFlowTheme.of(context)
                                                 .subtitle1,
                                           ),
@@ -154,7 +154,7 @@ class _MycartWidgetState extends State<MycartWidget> {
                                                 EdgeInsetsDirectional.fromSTEB(
                                                     0, 4, 0, 4),
                                             child: Text(
-                                              'Color: Green',
+                                              'Contract : 6 Months',
                                               style:
                                                   FlutterFlowTheme.of(context)
                                                       .bodyText1,
@@ -175,7 +175,7 @@ class _MycartWidgetState extends State<MycartWidget> {
                                       MainAxisAlignment.spaceBetween,
                                   children: [
                                     Text(
-                                      '[Price]',
+                                      'Amount: 1000',
                                       style: FlutterFlowTheme.of(context)
                                           .subtitle1,
                                     ),
@@ -285,7 +285,7 @@ class _MycartWidgetState extends State<MycartWidget> {
                             style: FlutterFlowTheme.of(context).bodyText2,
                           ),
                           Text(
-                            '[Order Total]',
+                            'Php 1000.00',
                             textAlign: TextAlign.end,
                             style: FlutterFlowTheme.of(context).title3,
                           ),

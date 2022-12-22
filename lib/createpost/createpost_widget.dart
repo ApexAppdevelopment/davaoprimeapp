@@ -288,7 +288,8 @@ class _CreatepostWidgetState extends State<CreatepostWidget> {
                     await postRecordReference.set(postCreateData);
                     postnow = PostRecord.getDocumentFromData(
                         postCreateData, postRecordReference);
-                    context.pop();
+
+                    context.pushNamed('gallerries');
 
                     setState(() {});
                   },

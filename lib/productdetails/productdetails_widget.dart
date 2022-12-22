@@ -12,10 +12,10 @@ import 'package:google_fonts/google_fonts.dart';
 class ProductdetailsWidget extends StatefulWidget {
   const ProductdetailsWidget({
     Key? key,
-    this.plans,
+    this.plantitle,
   }) : super(key: key);
 
-  final DocumentReference? plans;
+  final DocumentReference? plantitle;
 
   @override
   _ProductdetailsWidgetState createState() => _ProductdetailsWidgetState();

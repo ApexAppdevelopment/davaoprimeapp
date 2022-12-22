@@ -146,8 +146,8 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               name: 'productdetails',
               path: 'productdetails',
               builder: (context, params) => ProductdetailsWidget(
-                plans: params.getParam(
-                    'plans', ParamType.DocumentReference, false, 'Plans'),
+                plantitle: params.getParam(
+                    'plantitle', ParamType.DocumentReference, false, 'Plans'),
               ),
             ),
             FFRoute(

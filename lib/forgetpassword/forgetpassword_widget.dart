@@ -76,18 +76,24 @@ class _ForgetpasswordWidgetState extends State<ForgetpasswordWidget> {
                           ),
                           Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(4, 0, 0, 0),
-                            child: Text(
-                              'Back',
-                              style:
-                                  FlutterFlowTheme.of(context).title1.override(
-                                        fontFamily: FlutterFlowTheme.of(context)
-                                            .title1Family,
-                                        fontSize: 16,
-                                        useGoogleFonts: GoogleFonts.asMap()
-                                            .containsKey(
-                                                FlutterFlowTheme.of(context)
-                                                    .title1Family),
-                                      ),
+                            child: InkWell(
+                              onTap: () async {
+                                context.pop();
+                              },
+                              child: Text(
+                                'Back',
+                                style: FlutterFlowTheme.of(context)
+                                    .title1
+                                    .override(
+                                      fontFamily: FlutterFlowTheme.of(context)
+                                          .title1Family,
+                                      fontSize: 16,
+                                      useGoogleFonts: GoogleFonts.asMap()
+                                          .containsKey(
+                                              FlutterFlowTheme.of(context)
+                                                  .title1Family),
+                                    ),
+                              ),
                             ),
                           ),
                         ],
