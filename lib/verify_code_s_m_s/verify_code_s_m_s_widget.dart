@@ -1,7 +1,6 @@
 import '../auth/auth_util.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
-import '../flutter_flow/flutter_flow_widgets.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -127,58 +126,31 @@ class _VerifyCodeSMSWidgetState extends State<VerifyCodeSMSWidget> {
                               ),
                               controller: pinCodeController,
                               onChanged: (_) => {},
+                              onCompleted: (_) async {
+                                GoRouter.of(context).prepareAuthEvent();
+                                final smsCodeVal = pinCodeController!.text;
+                                if (smsCodeVal == null || smsCodeVal.isEmpty) {
+                                  ScaffoldMessenger.of(context).showSnackBar(
+                                    SnackBar(
+                                      content:
+                                          Text('Enter SMS verification code.'),
+                                    ),
+                                  );
+                                  return;
+                                }
+                                final phoneVerifiedUser = await verifySmsCode(
+                                  context: context,
+                                  smsCode: smsCodeVal,
+                                );
+                                if (phoneVerifiedUser == null) {
+                                  return;
+                                }
+
+                                context.goNamedAuth('homepage', mounted);
+                              },
                             ),
                           ),
                         ],
-                      ),
-                    ),
-                    Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(0, 24, 0, 44),
-                      child: FFButtonWidget(
-                        onPressed: () async {
-                          GoRouter.of(context).prepareAuthEvent();
-                          final smsCodeVal = pinCodeController!.text;
-                          if (smsCodeVal == null || smsCodeVal.isEmpty) {
-                            ScaffoldMessenger.of(context).showSnackBar(
-                              SnackBar(
-                                content: Text('Enter SMS verification code.'),
-                              ),
-                            );
-                            return;
-                          }
-                          final phoneVerifiedUser = await verifySmsCode(
-                            context: context,
-                            smsCode: smsCodeVal,
-                          );
-                          if (phoneVerifiedUser == null) {
-                            return;
-                          }
-
-                          context.goNamedAuth('homepage', mounted);
-                        },
-                        text: 'Confirm & Continue',
-                        options: FFButtonOptions(
-                          width: 270,
-                          height: 50,
-                          color: FlutterFlowTheme.of(context).primaryText,
-                          textStyle: FlutterFlowTheme.of(context)
-                              .subtitle2
-                              .override(
-                                fontFamily: FlutterFlowTheme.of(context)
-                                    .subtitle2Family,
-                                color: FlutterFlowTheme.of(context)
-                                    .primaryBackground,
-                                useGoogleFonts: GoogleFonts.asMap().containsKey(
-                                    FlutterFlowTheme.of(context)
-                                        .subtitle2Family),
-                              ),
-                          elevation: 2,
-                          borderSide: BorderSide(
-                            color: Colors.transparent,
-                            width: 1,
-                          ),
-                          borderRadius: BorderRadius.circular(12),
-                        ),
                       ),
                     ),
                   ],
