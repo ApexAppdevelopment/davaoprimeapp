@@ -169,12 +169,11 @@ class _GallerriesWidgetState extends State<GallerriesWidget> {
                         if (!snapshot.hasData) {
                           return Center(
                             child: SizedBox(
-                              width: 50,
-                              height: 50,
-                              child: SpinKitDoubleBounce(
+                              width: 40,
+                              height: 40,
+                              child: CircularProgressIndicator(
                                 color:
                                     FlutterFlowTheme.of(context).primaryColor,
-                                size: 50,
                               ),
                             ),
                           );
