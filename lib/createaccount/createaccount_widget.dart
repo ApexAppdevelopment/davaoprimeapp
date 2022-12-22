@@ -451,34 +451,6 @@ class _CreateaccountWidgetState extends State<CreateaccountWidget> {
                                   ),
                                 ),
                               ),
-                              InkWell(
-                                onTap: () async {
-                                  context.pushNamed('phonesignup');
-                                },
-                                child: Container(
-                                  width: 50,
-                                  height: 50,
-                                  decoration: BoxDecoration(
-                                    color: FlutterFlowTheme.of(context)
-                                        .primaryText,
-                                    boxShadow: [
-                                      BoxShadow(
-                                        blurRadius: 5,
-                                        color: Color(0x3314181B),
-                                        offset: Offset(0, 2),
-                                      )
-                                    ],
-                                    shape: BoxShape.circle,
-                                  ),
-                                  alignment: AlignmentDirectional(0, 0),
-                                  child: Icon(
-                                    Icons.phone_sharp,
-                                    color: FlutterFlowTheme.of(context)
-                                        .secondaryBackground,
-                                    size: 24,
-                                  ),
-                                ),
-                              ),
                             ],
                           ),
                         ),
