@@ -175,7 +175,9 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
             FFRoute(
               name: 'setting',
               path: 'setting',
-              builder: (context, params) => SettingWidget(),
+              builder: (context, params) => params.isEmpty
+                  ? NavBarPage(initialPage: 'setting')
+                  : SettingWidget(),
             ),
             FFRoute(
               name: 'UpdateInfo',

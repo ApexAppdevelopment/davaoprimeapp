@@ -38,6 +38,12 @@ class _OnboardingPageWidgetState extends State<OnboardingPageWidget>
             width: double.infinity,
             height: double.infinity,
             decoration: BoxDecoration(
+              image: DecorationImage(
+                fit: BoxFit.cover,
+                image: Image.network(
+                  'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/invest-now-j3376z/assets/n1xcy8lanj24/Macro_Plex_4K_Motion_Background_Loop.gif',
+                ).image,
+              ),
               gradient: LinearGradient(
                 colors: [Color(0xFF4B39EF), Color(0xFFEE8B60)],
                 stops: [0, 1],
